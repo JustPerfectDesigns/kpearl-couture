@@ -1,33 +1,365 @@
+@import url("https://fonts.googleapis.com/css2?family=Gilda+Display&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: "Poppins", "sans-serif";
+    @apply overflow-x-hidden;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer components {
+  ::selection {
+    @apply bg-yellow-600 text-white;
   }
+
+  img {
+    @apply w-full h-full object-cover;
+  }
+
+  .navbar {
+    @apply z-10 sticky top-0 flex items-center gap-12 w-full py-5 h-[80px] border-b bg-white;
+  }
+
+  h1,
+  h2,
+  .font-gilda {
+    font-family: "Gilda Display", serif;
+    @apply font-medium;
+  }
+
+  .ui__container {
+    max-width: 1200px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .section {
+    padding: 4.5rem 0 2rem;
+  }
+
+  .line-section {
+    margin: 4.5rem 0 2rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    .footer__content {
+      gap: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .ui__container {
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 568px) {
+    .footer__content {
+      grid-template-columns: repeat(3, max-content);
+    }
+
+    .footer__logo {
+      font-size: var(--h2-font-size);
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* For large devices */
+  @media screen and (min-width: 767px) {
+    .section {
+      padding: 7rem 0 2rem;
+    }
+
+    .line-section {
+      margin: 7rem 0 2rem;
+    }
+
+    .footer__container {
+      grid-template-columns: repeat(2, max-content);
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (min-width: 1023px) {
+    .ui__container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section {
+      padding: 7.5rem 0 1rem;
+    }
+
+    .line-section {
+      margin: 7.5rem 0 1rem;
+    }
+
+    .footer__content {
+      grid-template-columns: repeat(4, max-content);
+      gap: 7rem !important;
+    }
+
+    .footer__title {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__links {
+      row-gap: 1rem;
+    }
+
+    .footer__link {
+      font-size: 0.9rem !important;
+    }
+
+    .footer__info {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 2rem;
+    }
+  }
+
+  /* For 2k and 4k resolutions */
+  @media screen and (min-width: 2048px) {
+    body {
+      zoom: 1.5;
+    }
+  }
+
+  @media screen and (min-width: 3840px) {
+    body {
+      zoom: 2;
+    }
+  }
+}
+/* For Embla Carousel  */
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  position: relative;
+}
+
+.size-number-input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.product-item:hover .product-item-img-hover {
+  opacity: 1;
+}
+
+.product-item:hover .product-item-img {
+  opacity: 0;
+}
+
+/* =========== FOOTER SECTION =========== */
+.footer__container {
+  row-gap: 2.5rem;
+}
+
+.footer__logo {
+  font-family: var(--title-font);
+  font-size: var(--normal-font-size);
+  line-height: 1;
+  font-weight: normal;
+  color: var(--first-color);
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.footer__logo i {
+  margin-right: 2.5rem;
+}
+
+.footer__description,
+.footer__link {
+  /* font-size: var(--small-font-size);
+  font-weight: var(--font-medium); */
+}
+
+.footer__content,
+.footer__links {
+  display: grid;
+}
+
+.footer__content {
+  grid-template-columns: repeat(2, max-content);
+  gap: 2.5rem 4rem;
+}
+
+.footer__title {
+  /* font-size: var(--h3-font-size); */
+  margin-bottom: 2rem;
+  /* font-weight: var(--font-semi-bold); */
+}
+
+.footer__title span {
+  color: var(--second-color);
+}
+
+.footer__links {
+  row-gap: 0.5rem;
+}
+
+.footer__link {
+  color: #757575;
+  transition: 0.3s;
+  display: inline-flex;
+  margin-top: 0.8rem;
+}
+
+.footer__link:hover {
+  color: #0e0506;
+  text-decoration: underline;
+  transform: translateX(5px);
+}
+
+.footer__socials {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.footer__social-link {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+.footer__social-link:hover {
+  color: var(--title-color);
+}
+
+.footer__info,
+.footer__privacy {
+  display: flex;
+}
+
+.footer__info {
+  padding-bottom: 6rem;
+  margin-top: 5.5rem;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 1.5rem;
+}
+
+.footer__copy,
+.footer__privacy a {
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  color: var(--text-color);
+}
+
+.footer__privacy {
+  justify-content: center;
+  column-gap: 1.25rem;
+}
+
+/* Slider for price  */
+.horizontal-slider {
+  width: 100%;
+  height: 2px;
+  /* margin-top: 10px; */
+}
+
+.example-thumb {
+  height: 14px;
+  width: 14px;
+  background-color: #0e0506;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -6px;
+}
+
+.example-track {
+  top: 0;
+  bottom: 0;
+  background: #0e0506;
+  border-radius: 999px;
+}
+
+.example-track-0 {
+  background: #dddddd;
 }
