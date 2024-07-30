@@ -54,9 +54,9 @@ const CarouselSlides = () => {
                 </div>
               </div>
             ))}
-            <div className="embla__slide h-full bg-black text-white">
+            {/* <div className="embla__slide h-full bg-black text-white">
               Slide 3
-            </div>{" "}
+            </div>{" "} */}
           </div>
         </div>
       </div>
