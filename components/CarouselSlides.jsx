@@ -21,8 +21,8 @@ const CarouselSlides = () => {
   }, []);
 
   return (
-    <div className="h-screen">
-      <div className="h-4/6 sm:h-4/5">
+    <div className="h-[70vh] lg:h-[85vh] mb-20 md:mb-28 lg:mb-36">
+      <div className="h-full">
         <div className="embla h-full border" ref={emblaRef}>
           <div className="embla__container h-full">
             {homeHeaders.map((header) => (
