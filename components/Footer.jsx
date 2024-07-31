@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="footer__container grid lg:flex lg:justify-between lg:items-start">
           <div>
             <Link
-              href=""
+              href="/"
               className="font-gilda text-2xl md:text-3xl mb-10 block"
             >
               KPearl Couture
@@ -32,20 +32,44 @@ const Footer = () => {
               </Link>
             </div>
             <div className="mt-7 flex items-center gap-6 md:gap-5">
-              <Link href="#" target="_blank">
+              <Link
+                href="https://www.instagram.com/kpearlcouture"
+                target="_blank"
+              >
                 <i class="ri-instagram-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
               </Link>
-              <Link href="#" target="_blank">
+              <Link
+                href="https://www.facebook.com/profile.php?id=100095282456226"
+                target="_blank"
+              >
                 <i class="ri-facebook-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
               </Link>
-              <Link href="#" target="_blank">
+              <Link href="https://x.com/Kpearlcouture1" target="_blank">
                 <i class="ri-twitter-x-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
               </Link>
-              <Link href="#" target="_blank">
+              <Link
+                href="https://www.tiktok.com/@kpearl_couture"
+                target="_blank"
+              >
                 <i class="ri-tiktok-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
               </Link>
-              <Link href="#" target="_blank">
+              <Link
+                href="https://www.youtube.com/@Kpearlcouture-wb4wh"
+                target="_blank"
+              >
                 <i class="ri-youtube-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/kpearl-couture-1a85832b1"
+                target="_blank"
+              >
+                <i class="ri-linkedin-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
+              </Link>
+              <Link
+                href="https://www.pinterest.com/kpearlcouture"
+                target="_blank"
+              >
+                <i class="ri-pinterest-line text-xl text-[#565656] hover:text-[#0e0506]"></i>
               </Link>
             </div>
           </div>
@@ -58,32 +82,41 @@ const Footer = () => {
 
               <ul className="footer__links">
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/category/men" className="footer__link">
                     Men wears
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/category/women" className="footer__link">
                     Women wears
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/category/kids" className="footer__link">
                     Kids wears
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link
+                    href="/category/men?subcategory=men-agbada"
+                    className="footer__link"
+                  >
                     Agbada
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link
+                    href="/category/men?subcategory=kaftan"
+                    className="footer__link"
+                  >
                     Kaftan
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link
+                    href="/category/men?subcategory=men-suit"
+                    className="footer__link"
+                  >
                     Suits
                   </Link>
                 </li>
@@ -97,17 +130,17 @@ const Footer = () => {
 
               <ul className="footer__links">
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/about" className="footer__link">
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/contact" className="footer__link">
                     Contact Us
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="footer__link">
+                  <Link href="/blog" className="footer__link">
                     Our Journals
                   </Link>
                 </li>
