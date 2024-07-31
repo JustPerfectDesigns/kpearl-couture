@@ -22,7 +22,7 @@ const product = {
     },
     {
       name: "extraImages",
-      title: "Extra Images",
+      title: "Product Images",
       type: "array",
       of: [{ type: "image" }],
     },
