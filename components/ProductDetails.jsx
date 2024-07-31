@@ -59,7 +59,7 @@ function ProductDetails({ product }) {
     <div className="mt-20">
       <div className="gap-14 lg:flex lg:flex-row-reverse">
         <div className="gap-2 md:flex md:w-full md:flex-1">
-          <div className="w-full h-[428px] md:h-[765px] lg:h-auto object-cover">
+          <div className="w-full h-[428px] md:h-[765px] lg:h-[617.141px] lg:w-[464px] object-cover">
             <Image
               src={selectedImage}
               alt={product.name}
