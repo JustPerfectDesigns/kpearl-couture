@@ -9,7 +9,7 @@ const client = createClient({
   title: "kpearl-couture",
   apiVersion: "2023-11-21",
   token: process.env.NEXT_PUBLIC_SANITY_API_TOKEN,
-  useCdn: true,
+  useCdn: false,
 });
 
 export async function getProductBySlug(slug) {
