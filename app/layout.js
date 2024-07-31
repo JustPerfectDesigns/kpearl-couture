@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
 
           <div className="fixed bottom-6 right-6">
             <a
-              href="https://wa.me/+2348086563244?text=Hello, I need an info from KPearl Couture website."
+              href="https://wa.me/+2348101639720?text=Hello, I need an info from KPearl Couture website."
               target="_blank"
             >
               <img

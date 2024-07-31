@@ -9,7 +9,7 @@ const CustomerData = async () => {
   const user = await currentUser();
   const email = user?.primaryEmailAddress?.emailAddress;
 
-  if (email !== "ainagabrielcompany@gmail.com") {
+  if (email !== "ainagabrielcompany@gmail.com" && "kpearlcouture1@gmail.com") {
     // alert("You're not authorized");
     redirect("/sign-in");
   }
