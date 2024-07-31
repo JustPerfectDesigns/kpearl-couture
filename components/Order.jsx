@@ -1,6 +1,7 @@
 import { useUser } from "@clerk/nextjs";
 import { getOrdersByEmail } from "@/sanity/order-utils";
 import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export default async function Order() {
   const user = await currentUser();
