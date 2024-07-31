@@ -39,8 +39,8 @@ const links = [
   { name: "Kids Collections", href: "/category/kids" },
   { name: "My Orders", href: "/order" },
   { name: "Our Blog", href: "/blog" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Contact Us", href: "/contact-us" },
+  { name: "About Us", href: "/about" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function MobileNavbar() {

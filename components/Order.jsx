@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs/server";
 export default async function Order() {
   const user = await currentUser();
 
-  if (!user) return <div>Not logged in</div>;
+  if (!user) return redirect("/sign-in");
 
   const fetchedOrders = await getOrdersByEmail(
     user?.emailAddresses[0]?.emailAddress
