@@ -28,7 +28,7 @@ const CarouselSlides = () => {
             {homeHeaders.map((header) => (
               <div
                 key={header?._id}
-                className="embla__slide h-full bg-teal-600 text-white"
+                className="embla__slide h-full bg-black text-white"
               >
                 <Image
                   src={header?.bigImage}
