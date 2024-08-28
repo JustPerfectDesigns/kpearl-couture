@@ -31,7 +31,7 @@ export default async function Home() {
 
         <div
           className={
-            "product-list grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12"
+            "product-list grid gap-x-4 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12"
           }
         >
           {favoriteProducts.map((product) => (
@@ -54,7 +54,7 @@ export default async function Home() {
         </div>
         <div
           className={
-            "product-list grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12"
+            "product-list grid gap-x-4 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-12"
           }
         >
           {newestProducts.map((product) => (

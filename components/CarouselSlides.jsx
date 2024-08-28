@@ -37,8 +37,27 @@ const CarouselSlides = () => {
                   height={100}
                   unoptimized
                   priority
-                  className="z-0 absolute top-0 left-0 w-full object-cover"
+                  className="z-0 absolute top-0 left-0 w-full object-cover hidden md:block"
                 />
+                {/* <Image
+                  src={header?.bigImage}
+                  alt="Hero Image"
+                  width={100}
+                  height={100}
+                  unoptimized
+                  priority
+                  className="z-0 absolute top-0 left-0 w-full object-cover md:hidden"
+                /> */}
+                <div
+                  style={{
+                    backgroundImage: `url(${header?.bigImage})`,
+                    backgroundPosition: "right",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                  className="z-10 absolute top-0 left-0 w-full h-full md:hidden"
+                />
+                <div className="z-[11] absolute top-0 left-0 w-full h-full bg-gray-950/30 md:hidden"></div>
                 <div className="z-20 absolute mt-24 md:mt-36 mx-5 md:max-w-[30rem] lg:max-w-[35rem] md:ml-14">
                   <h1 className="text-white font-medium text-[2.6rem] md:text-[4.7rem] lg:text-[5rem] leading-9 md:leading-[4.2rem] lg:leading-[4.7rem]">
                     {header?.heading}

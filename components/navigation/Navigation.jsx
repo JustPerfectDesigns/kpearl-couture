@@ -8,6 +8,9 @@ import Menu from "./Menu";
 import { Button } from "../../components/ui/button";
 import { UserButton } from "@clerk/nextjs";
 
+import Logo from "../../public/images/kpearl-logo.PNG";
+import Image from "next/image";
+
 const Navigation = () => {
   const { isSignedIn, user, isLoaded } = useUser();
 
@@ -18,13 +21,21 @@ const Navigation = () => {
   return (
     <section className="fixed left-0 border-b top-0 mx-auto z-50 hidden h-20 w-full items-center justify-center bg-white lg:flex">
       <div className="ui__container w-full flex items-center justify-between">
-        <div className="font-gilda text-lg leading-none">
+        {/* <div className="font-gilda text-lg leading-none">
           <a href="/">
             KPearl
             <br />
             Couture
           </a>
-        </div>
+        </div> */}
+        <Link href="/">
+          <Image
+            src={Logo}
+            alt="Kpearl Couture Logo"
+            width={100}
+            height={100}
+          />
+        </Link>
         <nav>
           <NavMenu />
         </nav>

@@ -7,7 +7,7 @@ const ProductItem = ({ product }) => {
     <div className="product-item">
       <figure className="h-auto w-full relative overflow-hidden transition-all duration-100">
         <Link href={`/products/${product?.slug}`}>
-          <div className="h-[416px] md:h-[280px] lg:h-[344px] object-cover relative transition-all duration-100">
+          <div className="h-[216px] md:h-[280px] lg:h-[344px] object-cover relative transition-all duration-100">
             <Image
               src={product?.extraImages[0]}
               alt={product?.name}

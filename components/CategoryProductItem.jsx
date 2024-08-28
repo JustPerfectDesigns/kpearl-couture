@@ -21,7 +21,7 @@ const CategoryProductItem = ({ product }) => {
               unoptimized
             />
             <Image
-              src={urlFor(product.extraImages[1]).url()}
+              src={urlFor(product.extraImages[0]).url()}
               alt={product.name}
               style={{ objectFit: "cover" }}
               width="100"

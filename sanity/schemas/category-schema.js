@@ -2,7 +2,7 @@
 const category = {
   name: "category",
   type: "document",
-  title: "Categories",
+  title: "Categories (Don't Touch)",
   fields: [
     {
       name: "name",

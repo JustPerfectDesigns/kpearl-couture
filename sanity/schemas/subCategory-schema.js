@@ -1,7 +1,7 @@
 const subCategory = {
   name: "subCategory",
   type: "document",
-  title: "Sub Categories",
+  title: "Sub Categories (Don't Touch)",
   fields: [
     {
       name: "name",

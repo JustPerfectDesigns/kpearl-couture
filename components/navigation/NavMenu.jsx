@@ -33,7 +33,7 @@ export function NavMenu() {
           <NavigationMenuTrigger>Men</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-5 lg:mr-2">
+              <li className="row-span-6 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
                     className="flex h-full w-full relative select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md overflow-hidden"
@@ -98,15 +98,6 @@ export function NavMenu() {
               >
                 <span className="line-clamp-1 text-sm">
                   Explore our trousers collections.{" "}
-                </span>
-              </ListItem>
-              <ListItem
-                href="/category/men?subcategory=men-casual-wear"
-                title="Casual Wear"
-                className="text-sm"
-              >
-                <span className="line-clamp-1 text-sm">
-                  Check out our casual wear sets for men.{" "}
                 </span>
               </ListItem>
               <ListItem
@@ -250,14 +241,14 @@ export function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Kids</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Boys</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
-              <li className="row-span-5 lg:mr-2">
+              <li className="row-span-6 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
                     className="flex h-full w-full relative select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md overflow-hidden"
-                    href="/category/kids"
+                    href="/category/boys"
                   >
                     <Image
                       src="/images/menu-kids.png"
@@ -268,7 +259,7 @@ export function NavMenu() {
                       className="absolute top-0 left-0 h-full w-full object-cover z-0"
                     />
                     <span className="block mt-auto leading-tight text-3xl text-center text-white font-gilda z-[1]">
-                      Shop Kids
+                      Shop Boys
                       <br />
                       Collection
                     </span>
@@ -276,7 +267,7 @@ export function NavMenu() {
                 </NavigationMenuLink>
               </li>
               <ListItem
-                href="/category/kids?subcategory=kids-agbada"
+                href="/category/boys?subcategory=boys-agbada"
                 title="Agbada"
                 className="text-sm"
               >
@@ -285,7 +276,7 @@ export function NavMenu() {
                 </span>
               </ListItem>
               <ListItem
-                href="/category/kids?subcategory=kids-kaftan"
+                href="/category/boys?subcategory=boys-kaftan"
                 title="Kaftan"
                 className="text-sm"
               >
@@ -294,7 +285,7 @@ export function NavMenu() {
                 </span>
               </ListItem>
               <ListItem
-                href="/category/kids?subcategory=kids-suit"
+                href="/category/boys?subcategory=boys-suit"
                 title="Suits"
                 className="text-sm"
               >
@@ -303,7 +294,7 @@ export function NavMenu() {
                 </span>
               </ListItem>
               <ListItem
-                href="/category/kids?subcategory=kids-shirt"
+                href="/category/boys?subcategory=boys-shirt"
                 title="Shirts"
                 className="text-sm"
               >
@@ -312,7 +303,7 @@ export function NavMenu() {
                 </span>
               </ListItem>
               <ListItem
-                href="/category/kids?subcategory=kids-trousers"
+                href="/category/boys?subcategory=boys-trousers"
                 title="Trousers"
                 className="text-sm"
               >
@@ -321,42 +312,136 @@ export function NavMenu() {
                 </span>
               </ListItem>
               <ListItem
-                href="/category/kids?subcategory=kids-casual-wear"
+                href="/category/boys?subcategory=boys-casual-wear"
                 title="Casual Wear"
                 className="text-sm"
               >
                 <span className="line-clamp-1 text-sm">
-                  Check out our casual wear sets for kids.{" "}
-                </span>
-              </ListItem>
-              <ListItem
-                href="/category/kids?subcategory=kids-casual-wear"
-                title="Casual Wear"
-                className="text-sm"
-              >
-                <span className="line-clamp-1 text-sm">
-                  Check out our casual wear sets for kids.{" "}
+                  Check out our casual wear sets for boys.{" "}
                 </span>
               </ListItem>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        {/* <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Girls</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className='grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]'>
-              {components.map(component => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
-              ))}
+            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-5 lg:mr-2">
+                <NavigationMenuLink asChild>
+                  <Link
+                    className="flex h-full w-full relative select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md overflow-hidden"
+                    href="/category/girls"
+                  >
+                    <Image
+                      src="/images/girls.png"
+                      width={200}
+                      height={340}
+                      unoptimized
+                      priority
+                      className="absolute top-0 left-0 h-full w-full object-cover z-0"
+                    />
+                    <span className="block mt-auto leading-tight text-3xl text-center text-white font-gilda z-[1]">
+                      Shop Girls
+                      <br />
+                      Collection
+                    </span>
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+              <ListItem
+                href="/category/girls?subcategory=girls-two-piece"
+                title="two piece"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Explore our girls two piece collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-skirt-suit"
+                title="skirt suit"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls skirt suit collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-boubou"
+                title="boubou"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Explore our girls boubou collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-suit"
+                title="suit"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Explore our girls suit collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-jump-suit"
+                title="jump suit"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls jump suit collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-shirt-dress"
+                title="shirt dress"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls shirt dress collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-suit-and-skirt"
+                title="suit and skirt"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Explore our girls suit and skirt collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-skirt-and-top"
+                title="skirt and top"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls skirt and top collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-office-suit"
+                title="office suit"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls office suit collection.{" "}
+                </span>
+              </ListItem>
+              <ListItem
+                href="/category/girls?subcategory=girls-shirt-and-pant-trouser"
+                title="shirt and pant trouser"
+                className="text-sm capitalize"
+              >
+                <span className="line-clamp-1 text-sm">
+                  Check out our girls shirt and pant trouser collection.{" "}
+                </span>
+              </ListItem>
             </ul>
           </NavigationMenuContent>
-        </NavigationMenuItem> */}
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/blog" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>

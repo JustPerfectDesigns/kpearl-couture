@@ -26,6 +26,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MenuIcon, MenuSquare, ShoppingBag, X } from "lucide-react";
 // import { useShoppingCart } from "use-shopping-cart";
+import Logo from "../../public/images/kpearl-logo.PNG";
 import Image from "next/image";
 import toggleIcon from "../../public/images/toggleIcon.png";
 import Menu from "./Menu";
@@ -36,7 +37,8 @@ const links = [
   // { name: "Home", href: "/" },
   { name: "Men Collections", href: "/category/men" },
   { name: "Women Collections", href: "/category/women" },
-  { name: "Kids Collections", href: "/category/kids" },
+  { name: "Boys Collections", href: "/category/boys" },
+  { name: "Girls Collections", href: "/category/girls" },
   { name: "My Orders", href: "/order" },
   { name: "Our Blog", href: "/blog" },
   { name: "About Us", href: "/about" },
@@ -54,13 +56,22 @@ export default function MobileNavbar() {
           <Menu />
         </div>
 
-        <div className="font-gilda text-lg leading-none">
+        {/* <div className="font-gilda text-lg leading-none">
           <Link href="/">
             KPearl
             <br />
             Couture
           </Link>
-        </div>
+        </div> */}
+
+        <Link href="/">
+          <Image
+            src={Logo}
+            alt="Kpearl Couture Logo"
+            width={100}
+            height={100}
+          />
+        </Link>
 
         <div className="">
           <Sheet>
