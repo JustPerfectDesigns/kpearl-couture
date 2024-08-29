@@ -238,7 +238,7 @@ const CategoryDetailsPage = ({ params }) => {
             </div>
           </div>
           <div className="w-full md:w-[75vw]">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-x-4 gap-y-8 grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
               {filteredData.map((product) => (
                 <CategoryProductItem key={product._id} product={product} />
               ))}

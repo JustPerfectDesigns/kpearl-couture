@@ -32,7 +32,7 @@ const ProductItem = ({ product }) => {
         </Link>
       </figure>
       <Link href={`/products/${product?.slug}`}>
-        <h3 className="mt-3 px-4 text-center font-medium">{product?.name}</h3>
+        <h3 className="mt-3 text-center font-medium">{product?.name}</h3>
       </Link>
       <p className="mt-2 text-center font-gilda text-lg">
         {formatCurrency(product?.price)}

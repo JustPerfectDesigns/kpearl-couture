@@ -85,24 +85,78 @@ export async function getFavoriteProducts() {
   );
 }
 
+// export async function getRelatedProducts(category, currentSlug) {
+//   return client.fetch(
+//     groq`*[_type == "product" && category[0]->name == $category && subCategory[0]->name!= null && slug.current!= $currentSlug] | order(__rand) [0...4]{
+//       _id,
+//       createdAt,
+//       name,
+//       slug,
+//       description,
+//       additionalInfo,
+//       price,
+//       sizes,
+//       "slug": slug.current,
+//       "extraImages": extraImages[].asset->url,
+//       "category": category[0]->name,
+//       "subCategory": subCategory[0]->name,
+//     }`,
+//     { category, currentSlug }
+//   );
+// }
+
+// export async function getRelatedProducts(category, currentSlug) {
+//   if (!category || !category._ref) {
+//     console.error("Category reference is undefined");
+//     return [];
+//   }
+
+//   const query = `
+//     *[_type == "product" && category._ref == $categoryRef && slug.current != $currentSlug]{
+//       name,
+//       slug,
+//       extraImages,
+//       price,
+//       description,
+//       category
+//     }
+//   `;
+//   const params = {
+//     categoryRef: category._ref,
+//     currentSlug: currentSlug,
+//   };
+
+//   const products = await client.fetch(query, params);
+//   console.log("Related Products Query Result:", products);
+//   return products;
+// }
+
 export async function getRelatedProducts(category, currentSlug) {
-  return client.fetch(
-    groq`*[_type == "product" && category[0]->name == $category && subCategory[0]->name!= null && slug.current!= $currentSlug] | order(__rand) [0...4]{
-      _id,
-      createdAt,
+  if (!category) {
+    console.error("Category is undefined");
+    return [];
+  }
+
+  const categoryRef = category._ref || category; // Use _ref if available, otherwise use the category directly
+
+  const query = `
+    *[_type == "product" && category._ref == $categoryRef && slug.current != $currentSlug]{
       name,
       slug,
-      description,
-      additionalInfo,
+      extraImages,
       price,
-      sizes,
-      "slug": slug.current,
-      "extraImages": extraImages[].asset->url,
-      "category": category[0]->name,
-      "subCategory": subCategory[0]->name,
-    }`,
-    { category, currentSlug }
-  );
+      description,
+      category
+    }
+  `;
+  const params = {
+    categoryRef,
+    currentSlug,
+  };
+
+  const products = await client.fetch(query, params);
+  console.log("Related Products Query Result:", products);
+  return products;
 }
 
 export async function getProductsBySubCategory(subCategorySlug) {
