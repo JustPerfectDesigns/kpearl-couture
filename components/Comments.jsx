@@ -65,10 +65,11 @@ function Comments({ product }) {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Leave a review</h2>
+      {/* <h2 className="text-2xl font-bold mb-4">Leave a review</h2> */}
 
       {/* Star Rating */}
       <div className="flex items-center space-x-2 mb-4">
+        <p>Rate the product</p>
         {[1, 2, 3, 4, 5].map((star) => (
           <FaStar
             key={star}
@@ -83,12 +84,13 @@ function Comments({ product }) {
       </div>
 
       {/* Input for Comment */}
-      <div className="flex items-center justify-center space-x-4 mb-4">
+      <div className="flex flex-col gap-4 mb-4">
         <textarea
           type="text"
           placeholder="Your comment..."
           value={comment}
           onChange={handleCommentChange}
+          rows={3}
           className="mt-2 w-full border bg-[#F9F9F9] px-4 py-2 text-[#000] outline-none"
         />
         <Button
