@@ -281,38 +281,37 @@
 
 // export default ProductDetails;
 
-// ProductDetails.jsx
-import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
-import { PortableText } from "@portabletext/react";
-import { getRelatedProducts } from "@/sanity/product-utils";
-import { formatCurrency } from "@/utils/formatCurrency";
-import useCartStore from "@/cartStore";
-import { toast } from "react-hot-toast";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import SimilarProducts from "./SimilarProducts";
+import { useState, useEffect } from "react";
+import useCartStore from "@/cartStore";
+import { toast } from "react-hot-toast";
+import { formatCurrency } from "@/utils/formatCurrency";
 import Comments from "./Comments";
+import Link from "next/link";
+import { PortableText } from "@portabletext/react";
+import SimilarProducts from "./SimilarProducts";
+import { getRelatedProducts } from "@/sanity/product-utils";
 import MeasurementDiagram from "../public/images/measurement-diagram.webp";
 
 import {
   AlertDialog,
-  AlertDialogTrigger,
+  AlertDialogAction,
+  AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
   AlertDialogDescription,
   AlertDialogFooter,
-  AlertDialogCancel,
-  AlertDialogAction,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { ScrollArea } from "./ui/scroll-area";
-import { Button } from "@/components/ui/button";
 
 function ProductDetails({ product }) {
   const [selectedImage, setSelectedImage] = useState(product?.extraImages[0]);
@@ -320,13 +319,42 @@ function ProductDetails({ product }) {
   const [extraDescription, setExtraDescription] = useState("");
   const [relatedProducts, setRelatedProducts] = useState([]);
 
+  // useEffect(() => {
+  //   const fetchRelatedProducts = async () => {
+  //     try {
+  //       const products = await getRelatedProducts(
+  //         product.category,
+  //         product.slug
+  //       );
+  //       console.log("Fetched Related Products:", products);
+  //       setRelatedProducts(products);
+  //     } catch (error) {
+  //       console.error("Error fetching related products:", error);
+  //     }
+  //   };
+  //   fetchRelatedProducts();
+  // }, [product]);
+
   useEffect(() => {
     const fetchRelatedProducts = async () => {
-      const products = await getRelatedProducts(product.category, product.slug);
-      setRelatedProducts(products);
+      try {
+        const products = await getRelatedProducts(
+          product.category[0], // Make sure category[0] contains the necessary fields
+          product.slug
+        );
+        console.log("Fetched Related Products:", products);
+        console.log("Product Category:", product.category);
+
+        setRelatedProducts(products);
+      } catch (error) {
+        console.error("Error fetching related products:", error);
+      }
     };
     fetchRelatedProducts();
   }, [product]);
+
+  // Inside SimilarProducts component
+  console.log("Related products:", relatedProducts);
 
   const handleSizeChange = (type, value) => {
     setSizeValues((prevSizeValues) => ({ ...prevSizeValues, [type]: value }));
@@ -349,6 +377,12 @@ function ProductDetails({ product }) {
 
   const catLink = product.category ? product.category.toLowerCase() : "";
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+    }
+  };
+
   return (
     <div className="mt-20">
       <div className="gap-14 lg:flex lg:flex-row-reverse">
@@ -365,22 +399,25 @@ function ProductDetails({ product }) {
             />
           </div>
           <div className="mt-4 flex h-auto flex-wrap items-center gap-2 md:mt-0 md:flex-col md:flex-nowrap">
-            {product.extraImages.map((image) => (
-              <div
-                key={image}
-                className={`h-[70px] w-[62px] md:h-[125px] object-cover md:w-[100px] ${selectedImage === image ? "border-4 border-black" : ""}`}
-                onClick={() => setSelectedImage(image)}
-              >
-                <Image
-                  src={image}
-                  alt="product image"
-                  width={100}
-                  height={100}
-                  unoptimized
-                  className="single__product-image"
-                />
-              </div>
-            ))}
+            {product.extraImages.map((image) => {
+              return (
+                <div
+                  className={`h-[70px] w-[62px] md:h-[125px] object-cover md:w-[100px] ${selectedImage == image ? "border-4 border-black" : ""}`}
+                  onClick={() => {
+                    setSelectedImage(image);
+                  }}
+                >
+                  <Image
+                    src={image}
+                    alt="product image"
+                    width={100}
+                    height={100}
+                    unoptimized
+                    className="single__product-image"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -399,7 +436,7 @@ function ProductDetails({ product }) {
             {formatCurrency(product.price)}
           </span>
 
-          <form>
+          <form action="">
             <AlertDialog>
               <AlertDialogTrigger className="mt-6">
                 <div className="border h-10 flex justify-center items-center p-5">
@@ -419,7 +456,7 @@ function ProductDetails({ product }) {
                             key={size.type}
                             className="flex items-center gap-3 border-b-[1.5px] border-[#B0B0B0]"
                           >
-                            <span>{size.type}</span>
+                            <span className="">{size.type}</span>
                             <div className="h-[35px] w-[1px] bg-[#B0B0B0]"></div>
                             <select
                               value={sizeValues[size.type] || size.value}
@@ -444,6 +481,10 @@ function ProductDetails({ product }) {
                     </AlertDialogFooter>
                   </AlertDialogDescription>
                 </AlertDialogHeader>
+                {/* <AlertDialogFooter className="-mt">
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction>Continue</AlertDialogAction>
+                </AlertDialogFooter> */}
               </AlertDialogContent>
             </AlertDialog>
 
@@ -457,6 +498,7 @@ function ProductDetails({ product }) {
                 onChange={(e) => setExtraDescription(e.target.value)}
                 placeholder="write any other information you need to get to us..."
                 className="mt-2 w-full border bg-[#F9F9F9] px-4 py-2 text-[#000] outline-none"
+                onKeyDown={handleKeyDown}
                 rows={5}
               />
             </div>
@@ -492,7 +534,7 @@ function ProductDetails({ product }) {
             <AccordionContent>
               <Image
                 src={MeasurementDiagram}
-                alt="Measurement Diagram"
+                alt="Kpearl Couture Logo"
                 width={100}
                 height={100}
                 priority
@@ -500,20 +542,46 @@ function ProductDetails({ product }) {
               />
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-3" className="mb-2 md:mb-0">
+            <AccordionTrigger>Customer Reviews</AccordionTrigger>
+            <AccordionContent>
+              <Comments product={product} />
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-4" className="mb-2 md:mb-0">
+            <AccordionTrigger>
+              Delivery, return & exchange policy
+            </AccordionTrigger>
+            <AccordionContent>
+              <p className="font-bold text-[.9rem] mb-2 underline">
+                Shipping and Delivery
+              </p>
+              <ul className="flex items-start justify-center flex-col gap-2">
+                <li>
+                  <strong>Shipping Policy:</strong> Shipping times and costs
+                  will vary depending on your location and the shipping method
+                  chosen.
+                </li>
+                <li>
+                  <strong>Delivery:</strong> We are not responsible for delays
+                  caused by the carrier.
+                </li>
+                <li>
+                  <strong>Return Policy:</strong> Returns and exchanges are
+                  accepted within 15 days of purchase.
+                </li>
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
         </Accordion>
       </div>
 
-      {/* Similar Products */}
       {relatedProducts.length > 0 && (
-        <div className="mt-10 md:mt-16 lg:mt-20">
+        <div className="mt-20 lg:mt-32">
+          <h2 className="text-3xl lg:text-5xl mb-10">You may also like</h2>
           <SimilarProducts products={relatedProducts} />
         </div>
       )}
-
-      {/* Comments */}
-      <div className="mt-10 md:mt-16 lg:mt-20">
-        <Comments product={product} />
-      </div>
     </div>
   );
 }
