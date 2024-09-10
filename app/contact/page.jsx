@@ -5,6 +5,7 @@ import GoogleMap from "@/components/GoogleMap";
 import { Button } from "@/components/ui/button";
 import { createContact } from "@/sanity/contact-utils";
 import { toast } from "react-hot-toast";
+import Link from "next/link";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -75,7 +76,9 @@ const ContactPage = () => {
             Phone:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            +234 810 163 9720
+            <Link to="tel:+2348101639720" target="_blank">
+              +234 810 163 9720
+            </Link>
           </span>
         </div>
 
@@ -84,7 +87,9 @@ const ContactPage = () => {
             Email:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            info@kpearlcouture.ng
+            <Link to="mailto:info@kpearlcouture.ng" target="_blank">
+              info@kpearlcouture.ng
+            </Link>
           </span>
         </div>
 
