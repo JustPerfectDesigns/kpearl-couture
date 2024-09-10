@@ -75,7 +75,7 @@ const ContactPage = () => {
             Phone:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            1234 567 890
+            +234 810 163 9720
           </span>
         </div>
 
@@ -84,7 +84,7 @@ const ContactPage = () => {
             Email:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            hello@kpearlcouture.ng
+            info@kpearlcouture.ng
           </span>
         </div>
 
@@ -93,7 +93,7 @@ const ContactPage = () => {
             Store Address:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            17B Kusenla Road, Ikate Elegushi, Lekki Lagos. 106104
+            17b Kusenla Rd, Lekki Penninsula II, Lekki 106104, Lagos
           </span>
         </div>
 
