@@ -76,7 +76,7 @@ const ContactPage = () => {
             Phone:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            <Link to="tel:+2348101639720" target="_blank">
+            <Link href="tel:+2348101639720" target="_blank">
               +234 810 163 9720
             </Link>
           </span>
@@ -87,7 +87,7 @@ const ContactPage = () => {
             Email:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            <Link to="mailto:info@kpearlcouture.ng" target="_blank">
+            <Link href="mailto:info@kpearlcouture.ng" target="_blank">
               info@kpearlcouture.ng
             </Link>
           </span>
