@@ -58,18 +58,20 @@ const CarouselSlides = () => {
                   className="z-10 absolute top-0 left-0 w-full h-full md:hidden"
                 />
                 <div className="z-[11] absolute top-0 left-0 w-full h-full bg-gray-950/30 md:hidden"></div>
-                <div className="z-20 absolute mt-24 md:mt-36 mx-5 md:max-w-[30rem] lg:max-w-[35rem] md:ml-14">
-                  <h1 className="text-white font-medium text-[2.6rem] md:text-[4.7rem] lg:text-[5rem] leading-9 md:leading-[4.2rem] lg:leading-[4.7rem]">
-                    {header?.heading}
-                  </h1>
-                  <p className="text-slate-50 font-extralight mt-2">
-                    {header?.description}
-                  </p>
-                  <Link href={header?.button} className="mt-4 md:mt-6 block">
-                    <Button className="bg-white text-black rounded-none hover:text-black hover:bg-white">
-                      Shop Now
-                    </Button>
-                  </Link>
+                <div className="z-20 absolute h-full mx-5 md:max-w-[35rem] lg:max-w-[62%] md:ml-14">
+                  <div className="flex flex-col justify-center w-full h-full">
+                    <h1 className="text-white font-medium text-[2.4rem] md:text-[4rem] lg:text-[4.5rem] leading-9 md:leading-[4.2rem] lg:leading-[4.7rem]">
+                      {header?.heading}
+                    </h1>
+                    <p className="text-slate-50 font-extralight mt-2 lg:w-[70%]">
+                      {header?.description}
+                    </p>
+                    <Link href={header?.button} className="mt-4 md:mt-6 block">
+                      <Button className="bg-white text-black rounded-none hover:text-black hover:bg-white">
+                        Shop Now
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
