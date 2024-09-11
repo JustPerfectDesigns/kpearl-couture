@@ -49,40 +49,92 @@ export async function getProducts() {
   );
 }
 
+// export async function getNewestProducts() {
+//   return client.fetch(
+//     groq`*[_type == "product"] | order(_createdAt desc)[0...8]{
+//         _id,
+//         createdAt,
+//         name,
+//         slug,
+//         description,
+//         additionalInfo,
+//         price,
+//         sizes,
+//         "slug": slug.current,
+//         "extraImages": extraImages[].asset->url,
+//         "category": category[0]->name,
+//       }`
+//   );
+// }
+
 export async function getNewestProducts() {
-  return client.fetch(
-    groq`*[_type == "product"] | order(_createdAt desc)[0...8]{
-        _id,
-        createdAt,
-        name,
-        slug,
-        description,
-        additionalInfo,
-        price,
-        sizes,
-        "slug": slug.current,
-        "extraImages": extraImages[].asset->url,
-        "category": category[0]->name,
-      }`
+  const products = await client.fetch(
+    groq`*[_type == "product"] | order(_createdAt desc){
+      _id,
+      createdAt,
+      name,
+      slug,
+      description,
+      additionalInfo,
+      price,
+      sizes,
+      "slug": slug.current,
+      "extraImages": extraImages[].asset->url,
+      "category": category[0]->name,
+    }`
   );
+
+  // Remove duplicates by `_id`
+  const uniqueProducts = Array.from(
+    new Set(products.map((product) => product._id))
+  ).map((id) => products.find((product) => product._id === id));
+
+  // Limit the results to the first 8 unique products
+  return uniqueProducts.slice(0, 8);
 }
 
+// export async function getFavoriteProducts() {
+//   return client.fetch(
+//     groq`*[_type == "product" && isFavorite == true] | order(_createdAt desc)[0...4]{
+//         _id,
+//         createdAt,
+//         name,
+//         slug,
+//         description,
+//         additionalInfo,
+//         price,
+//         sizes,
+//         "slug": slug.current,
+//         "extraImages": extraImages[].asset->url,
+//         "category": category[0]->name,
+//       }`
+//   );
+// }
+
 export async function getFavoriteProducts() {
-  return client.fetch(
-    groq`*[_type == "product" && isFavorite == true] | order(_createdAt desc)[0...4]{
-        _id,
-        createdAt,
-        name,
-        slug,
-        description,
-        additionalInfo,
-        price,
-        sizes,
-        "slug": slug.current,
-        "extraImages": extraImages[].asset->url,
-        "category": category[0]->name,
-      }`
+  const products = await client.fetch(
+    groq`*[_type == "product"] | order(favoriteScore desc){
+      _id,
+      createdAt,
+      name,
+      slug,
+      description,
+      additionalInfo,
+      price,
+      sizes,
+      "slug": slug.current,
+      "extraImages": extraImages[].asset->url,
+      "category": category[0]->name,
+    }`
   );
+
+  // Remove duplicates by `_id`
+  const uniqueProducts = Array.from(
+    new Set(products.map((product) => product._id))
+  ).map((id) => products.find((product) => product._id === id));
+
+  // Limit the results to the first 8 unique products
+  return uniqueProducts.slice(0, 8);
 }
 
 export async function getProductsBySubCategory(subCategorySlug) {
