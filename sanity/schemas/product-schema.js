@@ -125,6 +125,14 @@ const product = {
       of: [{ type: "block" }],
       validation: (Rule) => Rule.required(),
     },
+    // Remember this colors to be added to the schema
+    // {
+    //   name: "colors",
+    //   title: "Colors",
+    //   type: "array",
+    //   of: [{ type: "block" }],
+    //   validation: (Rule) => Rule.required(),
+    // },
     {
       name: "additionalInfo",
       title: "Additional Information",

@@ -51,7 +51,7 @@ export async function getProducts() {
 
 export async function getNewestProducts() {
   return client.fetch(
-    groq`*[_type == "product"] | order(createdAt desc)[0...8]{
+    groq`*[_type == "product"] | order(_createdAt desc)[0...8]{
         _id,
         createdAt,
         name,
@@ -69,7 +69,7 @@ export async function getNewestProducts() {
 
 export async function getFavoriteProducts() {
   return client.fetch(
-    groq`*[_type == "product" && isFavorite == true] | order(createdAt desc)[0...4]{
+    groq`*[_type == "product" && isFavorite == true] | order(_createdAt desc)[0...4]{
         _id,
         createdAt,
         name,
