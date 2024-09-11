@@ -133,8 +133,8 @@ export async function getFavoriteProducts() {
     new Set(products.map((product) => product._id))
   ).map((id) => products.find((product) => product._id === id));
 
-  // Limit the results to the first 8 unique products
-  return uniqueProducts.slice(0, 8);
+  // Limit the results to the first 4 unique products
+  return uniqueProducts.slice(0, 4);
 }
 
 export async function getProductsBySubCategory(subCategorySlug) {
