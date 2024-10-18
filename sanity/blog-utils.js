@@ -31,7 +31,7 @@ export async function getBlogBySlug(slug) {
 
 export async function getBlog() {
   return client.fetch(
-    groq`*[_type == "blog"]{
+    groq`*[_type == "blog"] | order(createdAt desc){
         _id,
         createdAt,
         title,

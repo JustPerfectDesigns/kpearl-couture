@@ -7,6 +7,11 @@ import { urlFor } from "@/app/lib/sanity";
 const CategoryProductItem = ({ product }) => {
   const hasExtraImages = product?.extraImages?.length > 0;
 
+  // if (hasExtraImages) {
+  //   console.log("Extra Images: ", product.extraImages[0]);
+  //   console.log("Extra Images Name: ", product.name);
+  // }
+
   return (
     <div className="product-item">
       <figure className="h-auto w-full relative overflow-hidden transition-all duration-100">

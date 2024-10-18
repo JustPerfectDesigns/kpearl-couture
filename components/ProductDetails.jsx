@@ -132,12 +132,12 @@ function ProductDetails({ product }) {
                 </div>
               </AlertDialogTrigger>
               <AlertDialogContent className="!h-[85%] md:!h-auto !max-w-[85%] lg:!max-w-[65%]">
-                <AlertDialogHeader>
-                  <AlertDialogTitle className="mb-2">
-                    Please, fill in your measurements
-                  </AlertDialogTitle>
-                  <AlertDialogDescription>
-                    <ScrollArea className="h-[48%] md:h-auto">
+                <ScrollArea className="h-[100%] md:h-auto">
+                  <AlertDialogHeader>
+                    <AlertDialogTitle className="mb-2">
+                      Please, fill in your measurements
+                    </AlertDialogTitle>
+                    <AlertDialogDescription>
                       <div className="mt-6 flex flex-wrap gap-6 text-gray-500">
                         {product?.sizes?.map((size) => (
                           <div
@@ -162,13 +162,13 @@ function ProductDetails({ product }) {
                           </div>
                         ))}
                       </div>
-                    </ScrollArea>
-                    <AlertDialogFooter className="mt-6">
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction>Continue</AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogDescription>
-                </AlertDialogHeader>
+                      <AlertDialogFooter className="mt-6">
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction>Continue</AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                </ScrollArea>
               </AlertDialogContent>
             </AlertDialog>
 

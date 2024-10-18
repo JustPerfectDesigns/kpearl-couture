@@ -2,9 +2,9 @@ import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 
 import About1 from "../../public/images/about1.png";
-import About2 from "../../public/images/about2.png";
-import About3 from "../../public/images/about3.png";
-import About4 from "../../public/images/about4.png";
+import About2 from "../../public/images/kpearl-outer-look.png";
+import About3 from "../../public/images/kpearl-couture-reception-look.png";
+import About4 from "../../public/images/kpearl-main-showroom.png";
 
 const AboutPage = () => {
   return (

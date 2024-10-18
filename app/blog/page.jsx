@@ -1,6 +1,6 @@
 import BlogList from "@/components/BlogList";
 
-import { getBlog, getBlogBySlug, getNewestBlog } from "@/sanity/blog-utils";
+import { getBlog } from "@/sanity/blog-utils";
 
 const Blog = async () => {
   const blog = await getBlog();
