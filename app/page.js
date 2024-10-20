@@ -6,6 +6,9 @@ import CarouselSlides from "@/components/CarouselSlides";
 import { getNewestProducts, getFavoriteProducts } from "@/sanity/product-utils";
 import ProductItem from "@/components/ProductItem";
 import HomeMiddleBanner from "@/components/HomeMiddleBanner";
+import WeddingInspiration from "@/components/WeddingInspiration";
+
+export const revalidate = 0; // Add this to your page component
 
 export default async function Home() {
   const newestProducts = await getNewestProducts();
@@ -14,11 +17,12 @@ export default async function Home() {
   return (
     <div className="">
       <CarouselSlides />
+      <WeddingInspiration />
 
       <div className="pb-8">
         <div className="mb-10 md:flex md:items-center md:justify-between">
           <h2 className="text-center text-2xl md:w-full md:grow md:text-left md:text-4xl lg:text-6xl">
-            Our Favorite
+            Some Cool
             <br />
             Collections
           </h2>
@@ -45,7 +49,7 @@ export default async function Home() {
       <div className="section">
         <div className="mb-10">
           <h2 className="text-center text-2xl md:text-4xl lg:text-6xl">
-            Shop New Arrivals
+            Shop New Designs
           </h2>
           <p className="mx-auto mt-2 text-center font-light text-[#0E0506] md:mt-4 md:w-[500px]">
             We have got the best categories of wears you would ever need. Let us

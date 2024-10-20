@@ -1,8 +1,6 @@
-// app/category/[slug]/page.jsx
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { getCategoryBySlug } from "@/sanity/category-utils";
 import CategoryProductItem from "@/components/CategoryProductItem";
 import Image from "next/image";
 import ReactSlider from "react-slider";
@@ -18,6 +16,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { getSubCategoriesByCategory } from "@/sanity/subCategory-utils";
+import { getColorByCategory } from "@/sanity/color-utils";
 import { getProductsByCategorySlug } from "@/sanity/product-utils";
 import { urlFor } from "@/app/lib/sanity";
 import { useSearchParams } from "next/navigation";
@@ -25,6 +24,7 @@ import { useSearchParams } from "next/navigation";
 const CategoryDetailsPage = ({ params }) => {
   const searchParams = useSearchParams();
   const initialSubCategory = searchParams.get("subcategory") || null;
+  const initialColor = searchParams.get("color") || null;
 
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
@@ -36,14 +36,41 @@ const CategoryDetailsPage = ({ params }) => {
   const [subCategories, setSubCategories] = useState([]);
   const [selectedSubCategory, setSelectedSubCategory] =
     useState(initialSubCategory);
+  const [colors, setColors] = useState([]);
+  const [selectedColor, setSelectedColor] = useState(initialColor);
 
   useEffect(() => {
     const fetchSubCategories = async () => {
-      const { slug } = params;
-      const subCategoriesData = await getSubCategoriesByCategory(slug);
-      setSubCategories(subCategoriesData);
+      try {
+        const { slug } = params;
+        const subCategoriesData = await getSubCategoriesByCategory(slug);
+        setSubCategories(subCategoriesData);
+      } catch (error) {
+        console.error("Error fetching subcategories:", error);
+        setSubCategories([]);
+      }
     };
     fetchSubCategories();
+  }, [params]);
+
+  useEffect(() => {
+    const fetchColors = async () => {
+      try {
+        const { slug } = params;
+        const colorData = await getColorByCategory(slug);
+        const formattedColors = colorData
+          .map((color) => ({
+            ...color,
+            slug: color.slug?.current || color.slug,
+          }))
+          .filter((color) => color.slug && color.name);
+        setColors(formattedColors);
+      } catch (error) {
+        console.error("Error fetching colors:", error);
+        setColors([]);
+      }
+    };
+    fetchColors();
   }, [params]);
 
   const applyFilters = () => {
@@ -54,14 +81,28 @@ const CategoryDetailsPage = ({ params }) => {
         !searchQuery ||
         product.name.toLowerCase().includes(searchQuery.toLowerCase());
 
-      const subCategorySlug = product.subCategory?.slug;
+      const subCategorySlug =
+        product.subCategory?.slug?.current || product.subCategory?.slug;
       const isSubCategoryMatch =
         !selectedSubCategory ||
         (subCategorySlug &&
           subCategorySlug.trim().toLowerCase() ===
             selectedSubCategory.trim().toLowerCase());
 
-      return isPriceInRange && matchesSearchQuery && isSubCategoryMatch;
+      const productColorSlug =
+        product.color?.slug?.current || product.color?.slug;
+      const isColorMatch =
+        !selectedColor ||
+        (productColorSlug &&
+          productColorSlug.trim().toLowerCase() ===
+            selectedColor.trim().toLowerCase());
+
+      return (
+        isPriceInRange &&
+        matchesSearchQuery &&
+        isSubCategoryMatch &&
+        isColorMatch
+      );
     });
 
     const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -82,19 +123,40 @@ const CategoryDetailsPage = ({ params }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { slug } = params;
-      const categoryData = await getProductsByCategorySlug(slug);
-      setCategory(categoryData);
-      setData(categoryData.products);
-      setFilteredData(categoryData.products);
-      setLoading(false);
+      try {
+        const { slug } = params;
+        const categoryData = await getProductsByCategorySlug(slug);
+        setCategory(categoryData);
+        setData(categoryData.products);
+        setFilteredData(categoryData.products);
+      } catch (error) {
+        console.error("Error fetching category data:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, [params]);
 
   useEffect(() => {
     applyFilters();
-  }, [priceRange, sortBy, searchQuery, selectedSubCategory, data]);
+  }, [
+    priceRange,
+    sortBy,
+    searchQuery,
+    selectedSubCategory,
+    selectedColor,
+    data,
+  ]);
+
+  const resetFilters = () => {
+    setPriceRange([0, 2000000]);
+    setSortBy("latest");
+    setSearchQuery("");
+    setSelectedSubCategory(null);
+    setSelectedColor(null);
+    setFilteredData(data);
+  };
 
   if (loading) {
     return <div>Loading...</div>;
@@ -103,14 +165,6 @@ const CategoryDetailsPage = ({ params }) => {
   if (!category) {
     return <div>Category not found</div>;
   }
-
-  const resetFilters = () => {
-    setPriceRange([0, 2000000]);
-    setSortBy("latest");
-    setSearchQuery("");
-    setFilteredData(data);
-    setSelectedSubCategory(null);
-  };
 
   return (
     <section>
@@ -129,7 +183,7 @@ const CategoryDetailsPage = ({ params }) => {
             className="w-full h-full object-cover"
           />
         </div>
-        <p className="z-[1]">{category.catDesc}</p>
+        <p className="z-[1] text-white">{category.catDesc}</p>
       </div>
 
       <div>
@@ -141,7 +195,7 @@ const CategoryDetailsPage = ({ params }) => {
               </h1>
               <Separator className="mb-8 mt-4" />
               <div className="space-y-4">
-                <div className="space-y-2  pb-8">
+                <div className="space-y-2 pb-8">
                   <p className="font-medium">Search a product</p>
                   <div className="flex space-x-2">
                     <input
@@ -181,7 +235,7 @@ const CategoryDetailsPage = ({ params }) => {
 
                 <Separator />
 
-                <div className="space-y-2  pb-8">
+                <div className="space-y-2 pb-8">
                   <p className="font-medium">Sub Category</p>
                   <Select
                     value={selectedSubCategory}
@@ -192,6 +246,7 @@ const CategoryDetailsPage = ({ params }) => {
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
+                        <SelectItem value={null}>All Sub Categories</SelectItem>
                         {subCategories.map((subCategory) => (
                           <SelectItem
                             key={subCategory._id}
@@ -205,6 +260,40 @@ const CategoryDetailsPage = ({ params }) => {
                   </Select>
                 </div>
 
+                <Separator />
+
+                <div className="space-y-2 pb-8">
+                  <p className="font-medium">Color</p>
+                  <Select
+                    value={selectedColor}
+                    onValueChange={(value) => setSelectedColor(value)}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="Select a color" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectItem value={null}>All Colors</SelectItem>
+                        {colors.map((color) => (
+                          <SelectItem key={color._id} value={color.slug}>
+                            <div className="flex items-center gap-2">
+                              {color.colorCode && (
+                                <div
+                                  className="w-4 h-4 rounded-full"
+                                  style={{ backgroundColor: color.colorCode }}
+                                />
+                              )}
+                              {color.name}
+                            </div>
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <Separator />
+
                 <div className="pt-8">
                   <div className="relative">
                     <Select
@@ -212,7 +301,7 @@ const CategoryDetailsPage = ({ params }) => {
                       onValueChange={(value) => setSortBy(value)}
                     >
                       <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select a sort option" />
+                        <SelectValue placeholder="Sort by" />
                       </SelectTrigger>
                       <SelectContent>
                         <SelectGroup>
@@ -232,7 +321,7 @@ const CategoryDetailsPage = ({ params }) => {
                   </div>
                 </div>
               </div>
-              <Button onClick={resetFilters} className="mt-4">
+              <Button onClick={resetFilters} className="mt-4 w-full">
                 Reset Filters
               </Button>
             </div>

@@ -11,6 +11,8 @@ const client = createClient({
   useCdn: true,
 });
 
+export const revalidate = 0; // Add this to your page component
+
 export async function getCustomerDataBySlug(slug) {
   return client.fetch(
     groq`*[_type == "customer" && slug.current == $slug][0]{

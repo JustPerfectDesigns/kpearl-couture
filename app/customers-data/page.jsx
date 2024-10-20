@@ -5,6 +5,8 @@ import { redirect } from "next/navigation";
 import toast from "react-hot-toast";
 // import toast from "react-hot-toast";
 
+export const revalidate = 0; // Add this to your page component
+
 const CustomerData = async () => {
   const user = await currentUser();
   const email = user?.primaryEmailAddress?.emailAddress;

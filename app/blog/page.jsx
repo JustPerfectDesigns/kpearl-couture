@@ -2,6 +2,8 @@ import BlogList from "@/components/BlogList";
 
 import { getBlog } from "@/sanity/blog-utils";
 
+export const revalidate = 0; // Add this to your page component
+
 const Blog = async () => {
   const blog = await getBlog();
 

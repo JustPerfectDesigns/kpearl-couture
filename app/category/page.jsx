@@ -3,6 +3,8 @@ import { getCategories } from "@/sanity/category-utils";
 import Link from "next/link";
 import Image from "next/image";
 
+export const revalidate = 0; // Add this to your page component
+
 const CategoryPage = async () => {
   const categories = await getCategories();
 

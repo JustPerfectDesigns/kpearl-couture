@@ -3,6 +3,8 @@ import { getOrdersByEmail } from "@/sanity/order-utils";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
+export const revalidate = 0; // Add this to your page component
+
 export default async function Order() {
   const user = await currentUser();
 

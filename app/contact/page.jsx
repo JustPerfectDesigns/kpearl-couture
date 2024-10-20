@@ -87,8 +87,8 @@ const ContactPage = () => {
             Email:
           </span>
           <span className="block font-medium text-center lg:text-left">
-            <Link href="mailto:info@kpearlcouture.ng" target="_blank">
-              info@kpearlcouture.ng
+            <Link href="mailto:info@kpearlcouture.com" target="_blank">
+              info@kpearlcouture.com
             </Link>
           </span>
         </div>

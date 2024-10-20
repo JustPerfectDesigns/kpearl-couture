@@ -10,18 +10,13 @@ const client = createClient({
 
 export const revalidate = 0; // Add this to your page component
 
-export async function getHomeBanner() {
-  const banners = await client.fetch(
-    groq`*[_type == "homeBanner"]{
-        _id,
-        name,
-        "bigImage": bigImage.asset->url,
-        heading,
-        description,
-        button
-      }`
+export async function getColorByCategory(categorySlug) {
+  return client.fetch(
+    groq`*[_type == "color" && references(*[_type=="category" && slug.current == $categorySlug]._id)]{
+      _id,
+      name,
+      "slug": slug.current,
+    }`,
+    { categorySlug }
   );
-
-  // Assuming there should be only one banner, return the first one
-  return banners[0];
 }

@@ -9,6 +9,8 @@ const client = createClient({
   useCdn: true,
 });
 
+export const revalidate = 0; // Add this to your page component
+
 export async function getCategories() {
   return client.fetch(
     groq`*[_type == "category"]{
@@ -42,24 +44,3 @@ export async function getCategoryBySlug(slug) {
     { slug }
   );
 }
-
-// export async function getCategoryBySlug(slug) {
-//   return client.fetch(
-//     groq`*[_type == "category" && slug.current == $slug][0]{
-//         _id,
-//         name,
-//         slug,
-//         "bigImage": bigImage.asset->url,
-//         catText,
-//         catDesc,
-//         "products": *[_type == "product" && references(^._id)]{
-//           _id,
-//           name,
-//           slug,
-//           price,
-//           "extraImages": extraImages[].asset->url
-//         }
-//       }`,
-//     { slug }
-//   );
-// }

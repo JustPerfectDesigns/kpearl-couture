@@ -11,6 +11,7 @@ import testimonial from "./testimonial-schema";
 import homeHeader from "./homeHeader-schema";
 import homeBanner from "./homeBanner-schema";
 import subCategory from "./subCategory-schema";
+import color from "./color-schema";
 
 const schemas = [
   // user,
@@ -19,6 +20,7 @@ const schemas = [
   comment,
   category,
   subCategory,
+  color,
   blog,
   customerData,
   homeHeader,

@@ -38,6 +38,12 @@ const category = {
       of: [{ type: "reference", to: { type: "subCategory" } }],
       title: "Sub Categories",
     },
+    {
+      name: "colors",
+      type: "array",
+      of: [{ type: "reference", to: { type: "color" } }],
+      title: "Colors",
+    },
   ],
 };
 

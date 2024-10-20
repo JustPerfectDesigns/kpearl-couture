@@ -3,6 +3,8 @@ import { getBlogBySlug, getRandomBlogs } from "@/sanity/blog-utils";
 import ClientPortableText from "@/components/ClientPortableText";
 import BlogList from "@/components/BlogList";
 
+export const revalidate = 0; // Add this to your page component
+
 const SingleBlogPage = async ({ params }) => {
   const { slug } = params;
   const blog = await getBlogBySlug(slug);

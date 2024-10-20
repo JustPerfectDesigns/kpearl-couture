@@ -8,6 +8,8 @@ const client = createClient({
   useCdn: true,
 });
 
+export const revalidate = 0; // Add this to your page component
+
 export async function createContact(
   firstName,
   lastName,

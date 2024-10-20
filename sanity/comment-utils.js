@@ -9,6 +9,8 @@ const client = createClient({
   useCdn: true,
 });
 
+export const revalidate = 0; // Add this to your page component
+
 const commentsQuery = groq`
   *[_type == "comment" && product._ref == $productId] {
     _id,

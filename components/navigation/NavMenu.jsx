@@ -32,7 +32,7 @@ export function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Men</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-6 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
@@ -110,12 +110,95 @@ export function NavMenu() {
                 </span>
               </ListItem>
             </ul>
+
+            <div className="mt-3 px-6 mb-4">
+              <span className="text-[#222222] font-medium underline">
+                Choose Colors
+              </span>
+              <ul className="flex flex-wrap gap-x-9 w-full">
+                <ListItem
+                  href="/category/men?color=men-white"
+                  title="White"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-blue"
+                  title="Blue"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-black"
+                  title="Black"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-green"
+                  title="Green"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-brown"
+                  title="Brown"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-yellow"
+                  title="Yellow"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-orange"
+                  title="Orange"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-carton"
+                  title="Carton"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-onion"
+                  title="Onion"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-ash"
+                  title="Ash"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-red"
+                  title="Red"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-wine"
+                  title="Wine"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-magenta"
+                  title="Magenta"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-pink"
+                  title="Pink"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/men?color=men-stripes"
+                  title="Stripes"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+              </ul>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Women</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr_1fr]">
               <li className="row-span-5 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
@@ -238,12 +321,95 @@ export function NavMenu() {
                 </span>
               </ListItem>
             </ul>
+
+            <div className="mt-3 px-6 mb-4">
+              <span className="text-[#222222] font-medium underline">
+                Choose Colors
+              </span>
+              <ul className="flex flex-wrap gap-x-9 w-full">
+                <ListItem
+                  href="/category/women?color=women-white"
+                  title="White"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-blue"
+                  title="Blue"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-black"
+                  title="Black"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-green"
+                  title="Green"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-brown"
+                  title="Brown"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-yellow"
+                  title="Yellow"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-orange"
+                  title="Orange"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-carton"
+                  title="Carton"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-onion"
+                  title="Onion"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-ash"
+                  title="Ash"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-red"
+                  title="Red"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-wine"
+                  title="Wine"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-magenta"
+                  title="Magenta"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-pink"
+                  title="Pink"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/women?color=women-stripes"
+                  title="Stripes"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+              </ul>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Boys</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[600px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
               <li className="row-span-6 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
@@ -321,12 +487,95 @@ export function NavMenu() {
                 </span>
               </ListItem>
             </ul>
+
+            <div className="mt-3 px-6 mb-4">
+              <span className="text-[#222222] font-medium underline">
+                Choose Colors
+              </span>
+              <ul className="flex flex-wrap gap-x-9 w-full">
+                <ListItem
+                  href="/category/boys?color=boy-white"
+                  title="White"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-blue"
+                  title="Blue"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-black"
+                  title="Black"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-green"
+                  title="Green"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-brown"
+                  title="Brown"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-yellow"
+                  title="Yellow"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-orange"
+                  title="Orange"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-carton"
+                  title="Carton"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-onion"
+                  title="Onion"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-ash"
+                  title="Ash"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-red"
+                  title="Red"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-wine"
+                  title="Wine"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-magenta"
+                  title="Magenta"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-pink"
+                  title="Pink"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/boys?color=boy-stripes"
+                  title="Stripes"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+              </ul>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Girls</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr_1fr]">
               <li className="row-span-5 lg:mr-2">
                 <NavigationMenuLink asChild>
                   <Link
@@ -440,6 +689,89 @@ export function NavMenu() {
                 </span>
               </ListItem>
             </ul>
+
+            <div className="mt-3 px-6 mb-4">
+              <span className="text-[#222222] font-medium underline">
+                Choose Colors
+              </span>
+              <ul className="flex flex-wrap gap-x-9 w-full">
+                <ListItem
+                  href="/category/girls?color=girls-white"
+                  title="White"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-blue"
+                  title="Blue"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-black"
+                  title="Black"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-green"
+                  title="Green"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-brown"
+                  title="Brown"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-yellow"
+                  title="Yellow"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-orange"
+                  title="Orange"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-carton"
+                  title="Carton"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-onion"
+                  title="Onion"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-ash"
+                  title="Ash"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-red"
+                  title="Red"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-wine"
+                  title="Wine"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-magenta"
+                  title="Magenta"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-pink"
+                  title="Pink"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+                <ListItem
+                  href="/category/girls?color=girls-stripes"
+                  title="Stripes"
+                  className="text-sm pl-0 list-none hover:bg-transparent text-slate-500"
+                />
+              </ul>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>

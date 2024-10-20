@@ -9,6 +9,8 @@ const client = createClient({
   useCdn: true,
 });
 
+export const revalidate = 0; // Add this to your page component
+
 // Function to get orders by email and sort by the latest
 export async function getOrdersByEmail(email) {
   try {

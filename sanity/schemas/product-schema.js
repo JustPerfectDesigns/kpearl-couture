@@ -135,7 +135,7 @@ const product = {
     // },
     {
       name: "additionalInfo",
-      title: "Additional Information",
+      title: "Additional Information (Please Ignore)",
       type: "text",
     },
     {
@@ -150,6 +150,21 @@ const product = {
       type: "boolean",
     },
     {
+      name: "isWeddingInspiration",
+      title: "Wedding Inspiration",
+      type: "boolean",
+    },
+    {
+      name: "isAgbadaWeddingInspiration",
+      title: "Agbada Wedding Inspiration",
+      type: "boolean",
+    },
+    {
+      name: "isJacketWeddingInspiration",
+      title: "Jacket Wedding Inspiration",
+      type: "boolean",
+    },
+    {
       name: "category",
       title: "Product Category",
       type: "array",
@@ -161,6 +176,12 @@ const product = {
       title: "Sub Category",
       type: "reference",
       to: [{ type: "subCategory" }],
+    },
+    {
+      name: "color",
+      title: "Color",
+      type: "reference",
+      to: [{ type: "color" }],
     },
     {
       name: "createdAt",

@@ -10,59 +10,24 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { MenuIcon, MenuSquare, ShoppingBag, X } from "lucide-react";
-// import { useShoppingCart } from "use-shopping-cart";
+import { X } from "lucide-react";
 import Logo from "../../public/images/kpearl-logo.PNG";
 import Image from "next/image";
 import toggleIcon from "../../public/images/toggleIcon.png";
 import Menu from "./Menu";
-import { NavMenu } from "./NavMenu";
 import { UserButton } from "@clerk/nextjs";
 
-const links = [
-  // { name: "Home", href: "/" },
-  { name: "Men Collections", href: "/category/men" },
-  { name: "Women Collections", href: "/category/women" },
-  { name: "Boys Collections", href: "/category/boys" },
-  { name: "Girls Collections", href: "/category/girls" },
-  { name: "My Orders", href: "/order" },
-  { name: "Our Blog", href: "/blog" },
-  { name: "About Us", href: "/about" },
-  { name: "Contact Us", href: "/contact" },
-];
+import MobileNav from "./MobileTopNav";
+import { ScrollArea } from "../ui/scroll-area";
 
 export default function MobileNavbar() {
-  const pathname = usePathname();
-  //   const { handleCartClick, cartCount } = useShoppingCart(); // Get cartCount
-
   return (
     <header className="py-4 md:py-5 fixed left-0 border-b top-0 mx-auto z-50 w-full bg-white">
       <div className="flex items-center justify-between ui__container">
         <div className="leading-none list-none">
           <Menu />
         </div>
-
-        {/* <div className="font-gilda text-lg leading-none">
-          <Link href="/">
-            KPearl
-            <br />
-            Couture
-          </Link>
-        </div> */}
 
         <Link href="/">
           <Image
@@ -76,6 +41,7 @@ export default function MobileNavbar() {
         <div className="">
           <Sheet>
             <SheetTrigger asChild>
+              {/* ... sheet trigger content ... */}
               <Button variant="ghost" className="p-0 rounded-none">
                 <Image
                   src={toggleIcon}
@@ -89,7 +55,8 @@ export default function MobileNavbar() {
                 />
               </Button>
             </SheetTrigger>
-            <SheetContent className="sm:max-w-lg w-[70vw]">
+
+            <SheetContent className="sm:max-w-lg w-[75vw]">
               <SheetHeader>
                 <SheetTitle className="text-left text-xl">
                   <div className="font-gilda text-lg leading-none">
@@ -106,24 +73,11 @@ export default function MobileNavbar() {
                 </Button>
               </SheetClose>
 
-              <nav className="flex flex-col gap-8 mt-24">
-                {links.map((link, idx) => (
-                  <div key={idx}>
-                    <SheetClose asChild>
-                      <Link
-                        href={link.href}
-                        className={`font-medium text-[1.15rem] ${
-                          pathname === link.href
-                            ? "text-yellow-600"
-                            : "text-gray-800 hover:text-yellow-600"
-                        }`}
-                      >
-                        {link.name}
-                      </Link>
-                    </SheetClose>
-                  </div>
-                ))}
-              </nav>
+              <ScrollArea className="h-full pointer-events-none">
+                <div className="mt-24 pointer-events-auto">
+                  <MobileNav />
+                </div>
+              </ScrollArea>
             </SheetContent>
           </Sheet>
         </div>
