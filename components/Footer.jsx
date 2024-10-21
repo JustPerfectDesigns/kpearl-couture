@@ -25,10 +25,10 @@ const Footer = () => {
                 +234(0)708-207-5018
               </Link>
               <Link
-                href="mailto:info@kpearlcouture.ng"
+                href="mailto:info@kpearlcouture.com"
                 className="footer__description text-[0.9rem] mt-6 text-[#757575]"
               >
-                info@kpearlcouture.ng
+                info@kpearlcouture.com
               </Link>
             </div>
             <div className="mt-7 flex items-center gap-6 md:gap-5">

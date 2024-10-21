@@ -28,8 +28,7 @@ export default async function Home() {
           </h2>
           <p className="mt-2 text-center font-light text-[#0E0506] md:mt-0 md:w-[650px] md:text-left">
             We have got the best categories of wears you would ever need. Let us
-            show you some of our favorites. They might also be your new
-            favorites 😉
+            show you some of our cool Collections.
           </p>
         </div>
 

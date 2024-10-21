@@ -75,11 +75,11 @@ const ProductItem = ({ product }) => {
             />
           </div>
         </Link>
-        {product?.isFavorite && (
+        {/* {product?.isFavorite && (
           <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs">
             Featured
           </span>
-        )}
+        )} */}
       </figure>
       <Link href={`/products/${product?.slug}`}>
         <h3 className="mt-3 text-center font-medium">{product?.name}</h3>
