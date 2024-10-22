@@ -11,7 +11,19 @@ const CustomerData = async () => {
   const user = await currentUser();
   const email = user?.primaryEmailAddress?.emailAddress;
 
-  if (email !== "ainagabrielcompany@gmail.com" && "kpearlcouture1@gmail.com") {
+  // if (email !== "ainagabrielcompany@gmail.com" && "kpearlcouture1@gmail.com") {
+  //   // alert("You're not authorized");
+  //   redirect("/sign-in");
+  // }
+
+  const allowedEmails = [
+    "ainagabrielcompany@gmail.com",
+    "gabriel.jpdesigns@gmail.com",
+    "kpearlcouture1@gmail.com",
+    "Kpearlfabrics@gmail.com",
+  ];
+
+  if (!allowedEmails.includes(email)) {
     // alert("You're not authorized");
     redirect("/sign-in");
   }
