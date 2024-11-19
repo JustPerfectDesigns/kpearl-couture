@@ -20,15 +20,18 @@ export default function RootLayout({ children }) {
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
-          <Toaster />
+          {/* ======= AFTER PAYMENT 😁 ================================= */}
+          {/* <Toaster />
           <Navigation />
           <div className="lg:hidden py-4 bg-white">
             <MobileNavbar />
           </div>
           <main className="ui__container mt-12 lg:mt-24">
-            {/* <Navbar /> */}
             {children}
-            {/* <div className="h-screen ui__container flex flex-col justify-center items-center gap-4">
+          </main> */}
+
+          {/* ======= NO PAYMENT 😔 ================================= */}
+          <div className="h-screen ui__container flex flex-col justify-center items-center gap-4">
             <h1 className="text-4xl lg:text-8xl tracking-tight text-slate-900 text-center font-bold">
               This Website is currently unavailable till further notice.
             </h1>
@@ -39,8 +42,7 @@ export default function RootLayout({ children }) {
               </a>{" "}
               for more information.
             </p>
-          </div> */}
-          </main>
+          </div>
           <Footer />
 
           <div className="fixed bottom-6 right-6">
