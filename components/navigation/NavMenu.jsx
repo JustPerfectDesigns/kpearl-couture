@@ -30,6 +30,13 @@ export function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList className="">
         <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <NavigationMenuTrigger>Men</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-1 p-6 md:w-[400px] lg:w-[700px] lg:grid-cols-[.75fr_1fr]">
