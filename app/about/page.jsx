@@ -1,10 +1,10 @@
 import Testimonials from "@/components/Testimonials";
 import Image from "next/image";
 
-import About1 from "../../public/images/about1.png";
-import About2 from "../../public/images/kpearl-outer-look.png";
-import About3 from "../../public/images/kpearl-couture-reception-look.png";
-import About4 from "../../public/images/kpearl-main-showroom.png";
+import About1 from "../../public/images/about1.jpg";
+import About2 from "../../public/images/kpearl-outer-look.jpg";
+import About3 from "../../public/images/kpearl-couture-reception-look.jpg";
+import About4 from "../../public/images/kpearl-main-showroom.jpg";
 
 const AboutPage = () => {
   return (
@@ -57,7 +57,7 @@ const AboutPage = () => {
             height={100}
             unoptimized
             priority
-            className="w-full object-cover"
+            className="w-full object-contain"
           />
         </div>
 
