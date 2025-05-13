@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
       <html lang="en">
-        {/* <!-- Google tag (gtag.js) --> */}
+        {/* <!-- Google tag (gtag.js) -->
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-2NE4ENTHQD"
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           window.dataLayer = window.dataLayer || []; function gtag()
           {dataLayer.push(arguments)}
           gtag('js', new Date()); gtag('config', 'G-2NE4ENTHQD');
-        </script>
+        </script> */}
         <body className={inter.className}>
           {/* ======= AFTER PAYMENT 😁 ================================= */}
           <Toaster />
